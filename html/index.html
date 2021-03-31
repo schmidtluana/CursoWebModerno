@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicios HTML</title>
+  <style>
+    #conteudo{
+      padding: 30px, 0px;
+    }
+    nav{
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Exercicios HTML</h1>
+  </header>
+  <nav>
+    <a href ="./html/exercicios/teste.html">Teste</a> |
+    <a href ="./html/exercicios/texto1.html">Texto 1</a>  |
+    <a href ="./html/exercicios/texto2.html">Texto 2</a> |
+    <a href ="./html/exercicios/listas.html">Listas</a> |
+    <a href ="./html/exercicios/links.html">Links</a> |
+    <a href="/html/exercicios/tabela.html">Tabela</a>  |
+    <a href="/html/exercicios/form/form.html">Formulário</a> |
+  </nav>
+  <section id="conteudo"></section>
+  <footer>
+    <br>
+    Curso de Web Moderno
+  </footer>
+  <script>
+   document.querySelectorAll('a').forEach(link => {
+      const conteudo = document.getElementById('conteudo')
+      
+      link.onclick = function(e) {
+        e.preventDefault() // fica na página
+        fetch(link.href) //requisição ajax
+          .then(resp => resp.text())
+          .then(html => conteudo.innerHTML = html)
+      }
+    })
+    /*document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+            
+            link.onclick = function(e) {
+                e.preventDefault()
+                fetch(link.getAttribute('wm-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })*/
+  </script>
+</body>
+</html>

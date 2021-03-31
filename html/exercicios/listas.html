@@ -1,0 +1,62 @@
+<h1>Listas</h1>
+
+<!--Ordenadas-->
+<h2>Aprovados</h2>
+<ol>
+  <li>Bia</li>
+  <li>Pedro</li>
+  <li>João</li>
+  <li>Maria</li>
+</ol>
+
+<!--Não ordenada-->
+<h2>Lista de compras</h2>
+<ul>
+  <li>Feijão</li>
+  <li>Arroz</li>
+  <li>Macarrão</li>
+  <li>Uva</li>
+</ul>
+
+<!--Lista alinhada-->
+<h1>Projeto</h1>
+<ul class="tree">
+  <li>
+    <span wm-folder>Backend</span>  
+    <ul>
+    <li>
+      <span wm-folder>app</span>
+      <ul>
+        <li>produto.js</li>
+        <li>chuva.js</li>
+        <li>lua.js</li>
+
+      </ul>
+    </li>
+  </ul>
+</li>
+<li>
+  <span wm-folder>Frontend</span>
+  <ul>
+    <li>
+      <span wm-folder>public</span>
+      <ul>
+        <li>app.css.js</li>
+        <li>app.html.js</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+</ul>
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+  document.querySelectorAll('[wm-folder]').forEach(folder => {
+        
+    folder.onclick = function(e) {
+      const ul = folder.nextElementSibling // pega o proximo elemento da ul
+      const d = ul.style.display
+      ul.style.display = d ==='none' ? 'block' : 'none'
+     
+    }
+  })
+</script>
